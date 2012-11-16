@@ -1,14 +1,14 @@
 import logging
 
 from celery import Celery
-from celery.schedules import crontab
+from datetime import timedelta
 
 celery = Celery('tasks', broker='redis://localhost')
 
 CELERYBEAT_SCHEDULE = {
     'every-ten-secs': {
         'task': 'tasks.print_fib',
-        'schedule': crontab(minute='*/1'),
+        'schedule': timedelta(seconds=10),
         'args': (30),
     },
 }
