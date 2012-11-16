@@ -3,8 +3,11 @@ import logging
 from celery import Celery
 from celery.task import periodic_task
 from datetime import timedelta
+from os import environ
 
-celery = Celery('tasks', broker='redis://localhost')
+REDIS_URL = environ.get('REDISTOGO_URL', 'redis://localhost')
+
+celery = Celery('tasks', broker=REDIS_URL)
 
 
 def fib(n):
