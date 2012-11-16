@@ -4,4 +4,5 @@ billiard==2.7.3.18
 celery==3.0.12
 kombu==2.4.8
 python-dateutil==1.5
+redis==2.7.1
 wsgiref==0.1.2
