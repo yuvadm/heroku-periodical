@@ -7,8 +7,8 @@ This skeleton can be used to quickly run periodical tasks on the Heroku platform
 ## Deployment
 
 ```bash
- $ heroku create
- $ heroku addons:add redistogo:nano
- $ git push heroku master
- $ heroku ps:scale worker=1
- ```
+$ heroku create
+$ heroku addons:add redistogo:nano
+$ git push heroku master
+$ heroku ps:scale worker=1
+```
