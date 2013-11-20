@@ -9,7 +9,14 @@ from os import environ
 REDIS_URL = environ.get('REDISTOGO_URL', 'redis://localhost')
 
 # Setup the celery instance under the 'tasks' namespace
-celery = Celery('tasks', broker=REDIS_URL)
+app = Celery('tasks')
+
+# Use Redis as our broker and define json as the default serializer
+app.conf.update(
+    BROKER_URL=REDIS_URL,
+    CELERY_TASK_SERIALIZER='json',
+    CELERY_ACCEPT_CONTENT=['json', 'msgpack', 'yaml']
+)
 
 # Define the fibonacci function for use in our task
 def fib(n):
