@@ -1,0 +1,3 @@
+worker: celery -A tasks worker -B -E --loglevel=info
+redis: redis-server
+
