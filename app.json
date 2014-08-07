@@ -1,0 +1,8 @@
+{
+  "name": "Heroku Periodical",
+  "description": "A skeleton app for creating single worker scheduled tasks in Python running on Heroku",
+  "website": "https://github.com/yuvadm/heroku-periodical",
+  "addons": ["redistogo:nano"],
+  "env": {},
+}
+
