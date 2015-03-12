@@ -13,9 +13,9 @@ $ git push heroku master
 $ heroku ps:scale worker=1
 ```
 
-## Try it!
+### Try it now!
 
-You can quickly deploy this app on Heroku:
+You can single-click deploy this app using the awesome Heroku Button:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
