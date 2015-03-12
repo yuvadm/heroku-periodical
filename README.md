@@ -12,3 +12,10 @@ $ heroku addons:add redistogo:nano
 $ git push heroku master
 $ heroku ps:scale worker=1
 ```
+
+## Try it!
+
+You can quickly deploy this app on Heroku:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
