@@ -1,7 +1,6 @@
 import logging
 
-from celery import Celery
-from celery.task import periodic_task
+from celery import Celery, task
 from datetime import timedelta
 from os import environ
 
@@ -15,7 +14,13 @@ app = Celery('tasks')
 app.conf.update(
     BROKER_URL=REDIS_URL,
     CELERY_TASK_SERIALIZER='json',
-    CELERY_ACCEPT_CONTENT=['json', 'msgpack', 'yaml']
+    CELERY_ACCEPT_CONTENT=['json'],
+    CELERYBEAT_SCHEDULE = {
+        'print-fibonacci': {
+            'task': 'tasks.print_fib',
+            'schedule': timedelta(seconds=10)
+        },
+    }
 )
 
 # Define the fibonacci function for use in our task
@@ -26,7 +31,7 @@ def fib(n):
         return 1
 
 # The periodic task itself, defined by the following decorator
-@periodic_task(run_every=timedelta(seconds=10))
+@task
 def print_fib():
     # Just log fibonacci(30), no more
     logging.info(fib(30))
